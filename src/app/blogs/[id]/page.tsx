@@ -6,7 +6,7 @@ import Footer from '@/app/components/Footer';
 import Link from 'next/link';
 
 
-const page = ({params}:any) => {
+const Blogs = ({params}:any) => {
     const[data,setData]= useState(null);
     const fetchBlogData=()=>{
    for (let i=0;i<blog_data.length;i++)
@@ -68,4 +68,4 @@ fetchBlogData();
   )
 }
 
-export default page;
+export default Blogs;

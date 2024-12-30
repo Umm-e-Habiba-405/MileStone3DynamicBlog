@@ -5,7 +5,7 @@ import { assets } from "../../../../public/assets";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const page = () => {
+const addProduct = () => {
   const [image, setImage] = useState<File | null>(null); // Track selected image file
   const [data, setData] = useState({
     title: "",
@@ -110,4 +110,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default addProduct;

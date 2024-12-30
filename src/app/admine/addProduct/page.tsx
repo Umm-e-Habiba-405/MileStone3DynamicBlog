@@ -15,40 +15,11 @@ const AddProduct = () => {
     authorImg: "/profile_icon.png", // Static default image
   });
 
-  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setData((data) => ({ ...data, [name]: value }));
-  };
-
-  const onSubmitHandler = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!image) {
-      toast.error("Please upload an image.");
-      return;
+  
     }
 
-    const formData = new FormData();
-    formData.append("title", data.title);
-    formData.append("description", data.description);
-    formData.append("category", data.category);
-    formData.append("author", data.author);
-    formData.append("authorImg", data.authorImg);
-    formData.append("image", image);
-
-    try {
-      const response = await axios.get("/api/blog", formData);
-      if (response.data.success) {
-        toast.success(response.data.msg);
-      } else {
-        toast.error("Error occurred while adding the blog.");
-      }
-    } catch (error) {
-      toast.error("An error occurred while submitting the form.");
-      console.error(error);
-    }
-  };
+   
+  
 
   return (
     <>

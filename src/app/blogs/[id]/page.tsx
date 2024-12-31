@@ -6,21 +6,27 @@ import Footer from '@/app/components/Footer';
 import Link from 'next/link';
 
 
-const Blogs = ({params}:any) => {
-    const[data,setData]= useState(null);
-    const fetchBlogData=()=>{
-   for (let i=0;i<blog_data.length;i++)
-   {
-    if(Number(params.id)===blog_data[i].id){
-        setData(blog_data[i]);
-       console.log(blog_data[i]);
-        break;
+
+const Blogs = ({ params }: any) => {
+  const [data, setData] = useState(null);
+
+  const fetchBlogData = () => {
+    for (let i = 0; i < blog_data.length; i++) {
+      if (Number(params.id) === blog_data[i].id) {
+        // setData(blog_data[i]);
+        console.log(blog_data[i]);
+        break
+      }
     }
-   }
-    }
-    useEffect(()=>{
-fetchBlogData();
-    },[])
+  };
+
+  useEffect(() => {
+    fetchBlogData(); // Ensure this runs whenever params.id changes
+  }, [params.id]); // Add params.id as a dependency
+
+  if (!data) {
+    return <div>Loading...</div>; // Handle the loading state
+  }
   return (data?<>
     <div className='bg-gray-200 py-5 px-5 md:px-12 lg:px-28'>
       <div className='flex justify-between items-center '>

@@ -23,28 +23,43 @@ const SubscriptionList = () => {
   ];
 
   return (
-    <div className="container mx-auto p-6 w-[70%]">
-      <h1 className="text-3xl font-bold mb-4 text-center">Subscription List</h1>
+    <div className="container mx-auto p-6 w-full sm:w-[70%]">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-4 text-center">
+        Subscription List
+      </h1>
       <table className="table-auto w-full border-collapse border border-gray-300">
         <thead>
           <tr>
-            <th className="border border-gray-300 px-4 py-2">Date</th>
-            <th className="border border-gray-300 px-4 py-2">Action</th>
-            <th className="border border-gray-300 px-4 py-2">Email Address</th>
+            <th className="border border-gray-300 px-2 sm:px-4 py-2 text-sm sm:text-base">
+              Date
+            </th>
+            <th className="border border-gray-300 px-2 sm:px-4 py-2 text-sm sm:text-base">
+              Action
+            </th>
+            <th className="border border-gray-300 px-2 sm:px-4 py-2 text-sm sm:text-base">
+              Email Address
+            </th>
           </tr>
         </thead>
         <tbody>
           {subscriptions.map((subscription, index) => (
             <tr key={index}>
-              <td className="border border-gray-300 px-4 py-2 text-center ">{subscription.date}</td>
-              <td className="border border-gray-300 px-4 py-2 text-center">{subscription.action}</td>
-              <td className="border border-gray-300 px-4 py-2 text-center">{subscription.email}</td>
+              <td className="border border-gray-300 px-2 sm:px-4 py-2 text-center text-sm sm:text-base">
+                {subscription.date}
+              </td>
+              <td className="border border-gray-300 px-2 sm:px-4 py-2 text-center text-sm sm:text-base">
+                {subscription.action}
+              </td>
+              <td className="border border-gray-300 px-2 sm:px-4 py-2 text-center text-sm sm:text-base">
+                {subscription.email}
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
+  
 };
 
 export default SubscriptionList;

@@ -15,15 +15,16 @@ const AddProduct = () => {
     authorImg: "/profile_icon.png", // Static default image
   });
 
-  
-    }
+  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setData((data) => ({ ...data, [name]: value }));
+  };
 
-   
   
-
   return (
     <>
-      <form onSubmit={onSubmitHandler} className="pt-5 px-5 sm:pt-12 sm:pl-16">
+      <form className="pt-5 px-5 sm:pt-12 sm:pl-16 max-w-full">
         <p className="text-xl">Upload thumbnail</p>
         <label htmlFor="image">
           <Image
@@ -44,9 +45,8 @@ const AddProduct = () => {
         <p className="text-xl mt-4">Blog Title</p>
         <input
           name="title"
-          onChange={onChangeHandler}
           value={data.title}
-          className="w-full sm:w-[500px] mt-4 px-4 py-3 border"
+          className="w-full sm:w-[500px] mt-4 px-4 py-3 border max-w-full"
           type="text"
           placeholder="Type here"
           required
@@ -56,7 +56,7 @@ const AddProduct = () => {
           name="description"
           onChange={onChangeHandler}
           value={data.description}
-          className="w-full sm:w-[500px] mt-4 px-4 py-3 border"
+          className="w-full sm:w-[500px] mt-4 px-4 py-3 border max-w-full"
           placeholder="Write content here"
           rows={6}
           required
@@ -64,21 +64,24 @@ const AddProduct = () => {
         <p className="text-xl mt-4">Blog category</p>
         <select
           name="category"
-          onChange={onChangeHandler}
           value={data.category}
-          className="w-40 mt-4 px-4 py-3 border text-gray-500"
+          className="w-full sm:w-40 mt-4 px-4 py-3 border text-gray-500"
         >
           <option value="Startup">Startup</option>
           <option value="Technology">Technology</option>
           <option value="Lifestyle">Lifestyle</option>
         </select>
         <br />
-        <button type="submit" className="mt-8 w-40 h-12 bg-black text-white">
+        <button
+          type="submit"
+          className="mt-8 w-full sm:w-40 h-12 bg-black text-white"
+        >
           ADD
         </button>
       </form>
     </>
   );
+  
 };
 
 export default AddProduct;
